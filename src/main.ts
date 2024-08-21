@@ -53,4 +53,61 @@ class Page extends Component<PageProps> {
   }
 }
 
+// task-05
+
+interface KeyValuePair<K, V> {
+  key: K;
+  value: V;
+}
+
+// task-06
+
+type User = {
+  name: string;
+  surname: string;
+  email: string;
+  password: string;
+};
+
+function createOrUpdateUser(initialValues: Partial<User>) {
+  // Оновлення користувача
+}
+
+createOrUpdateUser({ email: "user@mail.com", password: "password123" });
+
+// task-07
+
+export enum UserRole {
+  admin = "admin",
+  editor = "editor",
+  guest = "guest",
+}
+
+type UserRoleDesc = Record<UserRole, string>;
+
+const RoleDescription: UserRoleDesc = {
+  admin: "Admin User",
+  editor: "Editor User",
+  guest: "Guest User",
+};
+
+// task-08
+
+type Errors = {
+  email?: string[];
+  firstName?: string[];
+  lastName?: string[];
+  phone?: string[];
+};
+
+type Form = {
+  email: string | null;
+  firstName: string | null;
+  lastName: string | null;
+  phone: string | null;
+  errors: Errors;
+};
+
+type Params = Omit<Form, "errors">;
+
 export {};
